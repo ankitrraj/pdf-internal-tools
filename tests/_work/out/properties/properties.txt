@@ -1,0 +1,19 @@
+File: /home/ankit/Documents/pdf-builder/tests/_work/fixtures/sample.pdf
+Size on disk: 332.1 KB
+Pages: 6
+Page sizes: 595x842 pt (210x297 mm) x6
+Title: Sample Document
+Author: Test Author
+Subject: Testing
+Keywords: sample, test
+Creator: -
+Producer: -
+Created: -
+Modified: -
+PDF version: PDF 1.7
+Encrypted: no
+Fonts: 2 (Helvetica, Helvetica-Bold)
+Images: 1
+Bookmarks: 4
+Form fields: 0
+Tagged / linearised: PDF

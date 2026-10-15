@@ -1,0 +1,8 @@
+--- sample.pdf
++++ sample-v2.pdf
+@@ -36,4 +36,5 @@
+ r3c2
+ email: nobody@example.com  phone 555-0100
++THIS LINE ONLY EXISTS IN THE SECOND VERSION
+ 
+ Chapter 3

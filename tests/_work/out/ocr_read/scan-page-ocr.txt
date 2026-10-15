@@ -1,0 +1,16 @@
+----- scan-page.png page 1 -----
+SCANNEDINVOICE
+Line item . 100.00
+Line item ... 100.00
+Line item ... 100.00
+Line item ... 100.00
+Line item 5... 100.00
+Line item 6... 100.00
+Line item 7 100.00
+Line item ... 100.0
+Line item 9... 100.00
+Line item 10... 100.00
+Line item 1... 100.00
+Line item 1... 100.00
+Line item 13  100.00
+Line item 14... 100.00

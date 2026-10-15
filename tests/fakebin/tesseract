@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Stand-in for tesseract. Implements the same CLI contract pytesseract uses,
+# so the OCR integration can be exercised without the real engine installed.
+all="$*"
+case "$1" in
+  --version) echo "tesseract 5.3.0"; exit 0;;
+  --list-langs) echo "List of available languages (3):"; echo eng; echo hin; echo fra; exit 0;;
+esac
+input="$1"; base="$2"
+[[ "$all" == *"--psm 0"* ]] && {
+  echo "Page number: 0"; echo "Orientation in degrees: 0"
+  echo "Rotate: 0"; echo "Orientation confidence: 12.3"; exit 0; }
+words=(SCANNED INVOICE Line item 100.00)
+emit_tsv() {
+  printf "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n"
+  local x=120 n=1
+  for w in "${words[@]}"; do
+    printf "5\t1\t1\t1\t1\t%d\t%d\t160\t%d\t38\t93\t%s\n" "$n" "$x" "$(( ${#w} * 22 ))" "$w"
+    x=$(( x + ${#w} * 24 + 20 )); n=$(( n + 1 ))
+  done
+}
+if [[ "$all" == *"tessedit_create_tsv=1"* || "$all" == *" tsv"* ]]; then
+  if [[ "$base" == "stdout" ]]; then emit_tsv; else emit_tsv > "$base.tsv"; fi
+else
+  if [[ "$base" == "stdout" ]]; then echo "${words[*]}"; else echo "${words[*]}" > "$base.txt"; fi
+fi
+exit 0

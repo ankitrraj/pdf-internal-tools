@@ -1,0 +1,7 @@
+file,page,width_pt,height_pt,width_mm,height_mm,orientation,rotation,characters,images,annotations
+sample.pdf,1,595.0,842.0,209.9,297.0,portrait,0,470,0,0
+sample.pdf,2,595.0,842.0,209.9,297.0,portrait,0,470,0,0
+sample.pdf,3,595.0,842.0,209.9,297.0,portrait,0,470,1,0
+sample.pdf,4,595.0,842.0,209.9,297.0,portrait,0,470,0,0
+sample.pdf,5,595.0,842.0,209.9,297.0,portrait,0,470,0,0
+sample.pdf,6,595.0,842.0,209.9,297.0,portrait,0,470,0,0

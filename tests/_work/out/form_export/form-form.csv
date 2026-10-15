@@ -1,0 +1,5 @@
+page,field,type,value
+1,full_name,text,
+1,date_of_birth,text,
+1,agree,checkbox,Off
+1,country,dropdown,India

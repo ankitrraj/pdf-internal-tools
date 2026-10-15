@@ -1,0 +1,27 @@
+# Core
+PySide6-Essentials>=6.6
+pymupdf>=1.24
+pikepdf>=8
+pypdf>=4
+Pillow>=10
+pillow-heif>=0.16
+numpy>=1.26
+
+# Conversions
+markdown>=3.5
+pdf2docx>=0.5.8
+python-docx>=1.1
+openpyxl>=3.1
+python-pptx>=0.6.23
+pdfplumber>=0.11
+striprtf>=0.0.26
+EbookLib>=0.18
+
+# Scanning / OCR / imaging
+pytesseract>=0.3.10              # drives tesseract when it is installed
+rapidocr-onnxruntime>=1.4        # built-in recogniser, needs no system packages
+opencv-python-headless>=4.9
+qrcode>=7.4
+
+# Camera capture in the Scan panel
+PySide6-Addons>=6.6

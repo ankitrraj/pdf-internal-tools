@@ -1,0 +1,70 @@
+[
+  {
+    "page": 1,
+    "name": "full_name",
+    "label": "",
+    "type": "text",
+    "value": "",
+    "options": [],
+    "rect": [
+      60.0,
+      110.0,
+      350.0,
+      132.0
+    ],
+    "required": false,
+    "readonly": false
+  },
+  {
+    "page": 1,
+    "name": "date_of_birth",
+    "label": "",
+    "type": "text",
+    "value": "",
+    "options": [],
+    "rect": [
+      60.0,
+      150.0,
+      250.0,
+      172.0
+    ],
+    "required": false,
+    "readonly": false
+  },
+  {
+    "page": 1,
+    "name": "agree",
+    "label": "",
+    "type": "checkbox",
+    "value": "Off",
+    "options": [],
+    "rect": [
+      60.0,
+      190.0,
+      76.0,
+      206.0
+    ],
+    "required": false,
+    "readonly": false
+  },
+  {
+    "page": 1,
+    "name": "country",
+    "label": "",
+    "type": "dropdown",
+    "value": "India",
+    "options": [
+      "India",
+      "United Kingdom",
+      "United States"
+    ],
+    "rect": [
+      60.0,
+      230.0,
+      250.0,
+      252.0
+    ],
+    "required": false,
+    "readonly": false
+  }
+]

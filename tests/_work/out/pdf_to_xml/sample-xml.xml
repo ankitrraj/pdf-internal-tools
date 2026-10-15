@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document source="sample.pdf" pages="6">
+  <page number="1" width="595.0" height="842.0">
+    <block id="1" x="60.0" y="56.5" x2="161.5" y2="86.8">
+      <line>Chapter 1</line>
+    </block>
+    <block id="2" x="60.0" y="110.0" x2="530.8" y2="173.9">
+      <line>This is page 1 of the sample document. It mentions Confidential material and the word apple</line>
+      <line>several times. apple apple.This is page 1 of the sample document. It mentions Confidential</line>
+      <line>material and the word apple several times. apple apple.This is page 1 of the sample document. It</line>
+      <line>mentions Confidential material and the word apple several times. apple apple.</line>
+    </block>
+    <block id="3" x="65.0" y="437.3" x2="382.5" y2="449.7">
+      <line>r0c0</line>
+      <line>r0c1</line>
+      <line>r0c2</line>
+    </block>
+    <block id="4" x="65.0" y="461.3" x2="382.5" y2="473.7">
+      <line>r1c0</line>
+      <line>r1c1</line>
+      <line>r1c2</line>
+    </block>
+    <block id="5" x="65.0" y="485.3" x2="382.5" y2="497.7">
+      <line>r2c0</line>
+      <line>r2c1</line>
+      <line>r2c2</line>
+    </block>
+    <block id="6" x="65.0" y="509.3" x2="382.5" y2="521.7">
+      <line>r3c0</line>
+      <line>r3c1</line>
+      <line>r3c2</line>
+    </block>
+    <block id="7" x="60.0" y="689.2" x2="270.2" y2="703.0">
+      <line>email: nobody@example.com  phone 555-0100</line>
+    </block>
+  </page>
+</document>
