@@ -50,6 +50,10 @@ class MainWindow(QtWidgets.QMainWindow):
         super().__init__()
         registry.load_all()
         self.settings = load_settings()
+        # settings written before "Start here" existed should land on it once
+        if self.settings.get("settings_version", 0) < 2:
+            self.settings["settings_version"] = 2
+            self.settings.pop("category", None)
         self.dark = bool(self.settings.get("dark", True))
         self.outdir = Path(self.settings.get("outdir", str(DEFAULT_OUT)))
         self.panels: dict[str, QtWidgets.QWidget] = {}
@@ -618,6 +622,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 worker.cancel()
                 worker.wait(2500)
         self.settings.update({
+            "settings_version": 2,
             "dark": self.dark, "outdir": str(self.outdir),
             "category": getattr(self, "category", "organize"),
             "tool": self.current_tool.id if self.current_tool else "merge",
