@@ -45,6 +45,17 @@ that happens rather than failing.
 
 ---
 
+## Finding a tool
+
+The sidebar opens on **Start here**, which lists the fifteen most common jobs
+(merge, images to PDF, Word to PDF, compress, sign, OCR…). Everything else is
+grouped in the categories below it, and **Ctrl+K** searches all 120 by name.
+
+The two asked about most often:
+
+- **Images → PDF**: *Start here* → “Images to PDF”, or the **Convert** category
+- **Word → PDF**: *Start here* → “Word (DOCX) to PDF”, or the **Office documents** category
+
 ## What's in it
 
 ### Organize pages  (14)
