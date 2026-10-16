@@ -120,7 +120,12 @@ class Scanner(QtWidgets.QWidget):
         body.addWidget(side)
         root.addLayout(body, 1)
 
-        self.find_cameras()
+        # Camera enumeration spins up the multimedia stack, so it waits
+        # until the panel is actually shown rather than blocking start-up.
+        self._cameras_listed = False
+        self.cam_box.addItem("looking for cameras...")
+        self.cam_box.setEnabled(False)
+        self.btn_start.setEnabled(False)
         self._update()
 
     # ------------------------------------------------------------- cameras
@@ -311,6 +316,12 @@ class Scanner(QtWidgets.QWidget):
                 f"Written to:\n{made[0]}\n\nOpen it now?") \
                 == QtWidgets.QMessageBox.Yes:
             open_externally(made[0])
+
+    def showEvent(self, ev):
+        super().showEvent(ev)
+        if not self._cameras_listed:
+            self._cameras_listed = True
+            QtCore.QTimer.singleShot(0, self.find_cameras)
 
     def hideEvent(self, ev):
         self.stop()

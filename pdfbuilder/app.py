@@ -6,6 +6,40 @@ import sys
 from pathlib import Path
 
 
+def _quiet_qt_logging() -> None:
+    """Mute Qt's own startup chatter.
+
+    Qt Multimedia announces its FFmpeg backend on stderr the first time the
+    camera panel loads. It is informational, and it looks alarming in a
+    terminal. Set PDFBUILDER_VERBOSE=1 to see everything Qt has to say.
+    """
+    if os.environ.get("PDFBUILDER_VERBOSE") == "1":
+        return
+    existing = os.environ.get("QT_LOGGING_RULES", "")
+    rules = "qt.multimedia.*=false;qt.qpa.wayland*.warning=false"
+    os.environ["QT_LOGGING_RULES"] = (existing + ";" + rules
+                                      if existing else rules)
+
+
+def _quiet_desktop_integration() -> None:
+    """Keep Qt from loading the GTK platform theme.
+
+    On a GNOME Wayland session Qt pulls in libqgtk3, which initialises GTK and
+    prints 'Gdk-CRITICAL ... gdk_wayland_window_get_wl_surface' warnings
+    against Qt's own windows. Nothing actually fails, but the noise looks like
+    a crash. This app paints every widget itself, so the native theme is not
+    needed. Set PDFBUILDER_NATIVE_THEME=1 to keep the system theme anyway.
+    """
+    if os.environ.get("PDFBUILDER_NATIVE_THEME") == "1":
+        return
+    if os.environ.get("QT_QPA_PLATFORMTHEME"):
+        return                      # the user chose one; leave it alone
+    wayland = (os.environ.get("XDG_SESSION_TYPE") == "wayland"
+               or os.environ.get("WAYLAND_DISPLAY"))
+    if wayland:
+        os.environ["QT_QPA_PLATFORMTHEME"] = "generic"
+
+
 def main(argv=None) -> int:
     argv = list(sys.argv if argv is None else argv)
     args = [a for a in argv[1:] if not a.startswith("-")]
@@ -51,10 +85,17 @@ def main(argv=None) -> int:
               file=sys.stderr)
         return 2
 
-    from PySide6 import QtWidgets
+    _quiet_desktop_integration()
+    _quiet_qt_logging()
+
+    from PySide6 import QtCore, QtWidgets
 
     from pdfbuilder.ui.main_window import MainWindow
 
+    # The app is fully styled by its own stylesheet, so the desktop's native
+    # dialogs add nothing and are a common source of GTK/Wayland warnings.
+    QtWidgets.QApplication.setAttribute(
+        QtCore.Qt.AA_DontUseNativeDialogs, True)
     app = QtWidgets.QApplication(argv)
     app.setApplicationName("PDF Builder")
     app.setApplicationDisplayName("PDF Builder")

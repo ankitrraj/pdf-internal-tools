@@ -35,6 +35,18 @@ Without LibreOffice, Office conversions fall back to a built-in converter that
 keeps the text and tables but simplifies the layout. The app tells you when
 that happens rather than failing.
 
+### Desktop integration
+
+The app paints every widget itself, so on a Wayland session it tells Qt to
+skip the system's GTK theme. Without that, GNOME's Qt/GTK bridge prints
+`Gdk-CRITICAL … gdk_wayland_window_get_wl_surface` warnings against Qt's own
+windows — harmless, but they look like a crash. To use the system theme
+anyway:
+
+```bash
+PDFBUILDER_NATIVE_THEME=1 ./run.sh
+```
+
 ## Command line
 
 ```bash
